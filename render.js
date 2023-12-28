@@ -16,7 +16,7 @@ function appearResult() {
     setTimeout(function () {
       $(e).addClass("in");
       spanValue = e.querySelector("span");
-      const dataValue = parseInt($(spanValue).text());
+      const dataValue = parseInt($(e).attr('data-value'));
       animateValue(spanValue, 0, dataValue, dataValue * 40);
     }, i * 600);
   });
