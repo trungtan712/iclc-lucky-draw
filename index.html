@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lucky Draw App</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./result-random.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="intro">
+      <video id="intro-video" autoplay muted>
+        <source src="./assets/intro.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="root">
+      <div class="header">
+        <div class="logo">
+          <img src="./assets/logo.png" id="playPauseBtn" alt="logo" />
+        </div>
+        <div class="media">
+          <div class="music-player">
+            <audio id="myAudio" src="./assets/music.mp3"></audio>
+          </div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="d-flex justify-content-center align-items-center">
+          <img
+            id="ribbon-img"
+            src="./assets/ribbon/ribbon5.png"
+            style="width: 1000px; margin-top: -69px px; margin-bottom: 68px"
+            alt=""
+          />
+        </div>
+        <div class="result-random">
+          <div id="container">
+            <div
+              class="palette d-flex justify-content-center align-items-center"
+              id="palette-result"
+            ></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer d-flex justify-content-center align-items-start">
+        <div
+          class="d-flex justify-content-center align-items-center flex-column"
+          onclick="bookGift(this)"
+          data-tpe="nhat"
+        >
+          <img src="./assets/icon/Asset3.png" style="width: 320px" />
+          <div class="amount-gift" id="amount-nhat">20</div>
+        </div>
+        <div
+          class="d-flex justify-content-center align-items-center flex-column"
+          onclick="bookGift(this)"
+          data-tpe="nhi"
+        >
+          <img src="./assets/icon/Asset4.png" style="width: 320px" />
+          <div class="amount-gift" id="amount-nhi">20</div>
+        </div>
+        <div
+          class="d-flex justify-content-center align-items-center flex-column"
+          onclick="bookGift(this)"
+          data-tpe="ba"
+        >
+          <img
+            src="./assets/icon/Asset5.png"
+            style="width: 280px; margin-top: 4px"
+          />
+          <div class="amount-gift" id="amount-ba">20</div>
+        </div>
+        <div
+          class="d-flex justify-content-center align-items-center flex-column"
+          onclick="bookGift(this)"
+          data-tpe="khuyenkhich"
+        >
+          <img
+            src="./assets/icon/Asset6.png"
+            style="width: 221px; margin-top: 30px"
+          />
+          <div class="amount-gift" id="amount-khuyenkhich">20</div>
+        </div>
+        <div
+          class="d-flex justify-content-center align-items-center flex-column"
+          onclick="bookGift(this)"
+          data-tpe="mayman"
+        >
+          <img
+            src="./assets/icon/Asset7.png"
+            style="width: 220px; margin-top: 30px"
+          />
+          <div class="amount-gift" id="amount-mayman">20</div>
+        </div>
+      </div>
+    </div>
+    <!-- Trong phần <body> -->
+    <video
+      id="backgroundVideo"
+      class="fullscreen-bg fullscreen-bg__video"
+      autoplay
+      loop
+      muted
+    >
+      <source src="./assets/04.mp4" type="video/mp4" />
+      <!--Thêm các định dạng video khác nếu cần-->
+    </video>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./render.js"></script>
+    <script src="./main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var video = document.getElementById("intro-video");
+        video.playbackRate = 1.6;
+        video.addEventListener("ended", function () {
+          // Khi video kết thúc, hiển thị nội dung của trang web
+          document.querySelector(".intro").remove();
+        });
+      });
+    </script>
+  </body>
+</html>
