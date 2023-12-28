@@ -51,7 +51,7 @@ function getRandomAndRemove(numberOfRandoms) {
     }
     var randomIndex = Math.floor(Math.random() * member.length);
     result.push(member[randomIndex]);
-    member.splice(randomIndex, 1);
+    member= member.filter((m) => m != member[randomIndex]);
   }
   resultTest.push(...result);
   return result;
