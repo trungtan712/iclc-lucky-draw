@@ -54,6 +54,7 @@ function getRandomAndRemove(numberOfRandoms) {
     member= member.filter((m) => m != member[randomIndex]);
   }
   resultTest.push(...result);
+  // resultTest.push(result.sort((a, b) => a - b));
   return result;
   
 }
