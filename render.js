@@ -83,6 +83,7 @@ function renderResult(numberOfRandoms) {
     paletteResult.append(colorDiv);
   });
   console.log(resultTest.sort((a, b) => a - b));
+  console.log(resultTest);
   appearResult();
 }
 
