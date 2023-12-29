@@ -12,13 +12,17 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
   </head>
   <body>
-    <div class="intro">
+    <!-- <div class="intro">
       <video id="intro-video" autoplay muted>
         <source src="./assets/intro.mp4" type="video/mp4" />
       </video>
-    </div>
+    </div> -->
     <div class="root">
       <div class="header">
         <div class="logo">
@@ -131,11 +135,13 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         var video = document.getElementById("intro-video");
-        video.playbackRate = 1.6;
-        video.addEventListener("ended", function () {
-          // Khi video kết thúc, hiển thị nội dung của trang web
-          document.querySelector(".intro").remove();
-        });
+        if (video) {
+          video.playbackRate = 1.6;
+          video.addEventListener("ended", function () {
+            // Khi video kết thúc, hiển thị nội dung của trang web
+            document.querySelector(".intro").remove();
+          });
+        }
       });
     </script>
   </body>

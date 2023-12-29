@@ -27,24 +27,22 @@
 
 .color {
   display: inline-block;
-  width: 92px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   position: relative;
   margin: 14px 8px;
   border-radius: 5px;
   text-align: center;
   opacity: 0;
   transition: all 150ms;
-  background-color: #920119;
-  border: 5px solid #e5ba51;
-  padding: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: #9e1815;
 }
-.color span{
-    font-size: 40px;
+.color span {
+  font-size: 58px;
+  font-weight: bolder;
 }
 
 .color:after {
@@ -58,22 +56,23 @@
   background: rgba(255, 255, 255, 0.5);
   color: #362a34;
   -webkit-animation: fadeOut 200ms ease-in forwards;
-          animation: fadeOut 200ms ease-in forwards;
+  animation: fadeOut 200ms ease-in forwards;
 }
 
 .color:hover {
   transform: scale(1.15);
 }
 
-.color.in, .color:hover:after {
+.color.in,
+.color:hover:after {
   -webkit-animation: bounceIn 450ms ease-in;
-          animation: bounceIn 450ms ease-in;
+  animation: bounceIn 450ms ease-in;
   opacity: 1;
 }
 
 .palette.in:before {
   -webkit-animation: fadeIn 300ms ease-in forwards;
-          animation: fadeIn 300ms ease-in forwards;
+  animation: fadeIn 300ms ease-in forwards;
 }
 
 @-webkit-keyframes bounceIn {
@@ -153,11 +152,11 @@
     opacity: 1;
   }
 }
-.result-random{
+.result-random {
   height: 250px;
 }
 
-.intro{
+.intro {
   width: 100vw;
   height: 100vh;
   position: absolute;
@@ -169,4 +168,64 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.bg-framet {
+  background-image: url("./assets/frame/t.jpg");
+  background-size: cover;
+}
+
+.bg-frame1 span {
+  font-size: 78px;
+}
+.bg-frame1 {
+  background-image: url(./assets/frame/Prize1.png);
+  background-size: cover;
+  background-position-x: 1px;
+  width: 500px;
+  height: 435px;
+  margin-top: -197px;
+}
+
+.bg-frame2 span {
+  font-size: 87px;
+}
+.bg-frame2 {
+  background-image: url("./assets/frame/Prize2.png");
+  background-size: cover;
+  width: 400px;
+  height: 324px;
+  margin-top: -91px;
+}
+
+.bg-frame3 span {
+  font-size: 80px;
+}
+.bg-frame3 {
+  background-image: url("./assets/frame/Prize3.png");
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+  margin-top: -78px;
+}
+
+.bg-frame4 span {
+  font-size: 85px;
+  margin-top: 32px;
+}
+.bg-frame4 {
+  background-image: url(./assets/frame/Prize4.png);
+  background-size: cover;
+  width: 250px;
+  height: 250px;
+  margin-top: -75px;
+}
+
+.bg-frame5 span{
+  margin-top: 20px;
+}
+.bg-frame5 {
+  background-image: url("./assets/frame/Prize5.png");
+  background-size: cover;
+  height: 180px;
 }

@@ -11,13 +11,14 @@ const config = {
   mayman: totalMember - 16,
 };
 reset();
-function appearResult() {
-  $(".palette, .color").each(function (i, e) {
+function appearResult(typeGift) {
+  $(".palette .color").each(function (i, e) {
     setTimeout(function () {
       $(e).addClass("in");
+      $(e).addClass("bg-frame" + getSTT(typeGift));
       spanValue = e.querySelector("span");
-      const dataValue = parseInt($(e).attr('data-value'));
-      animateValue(spanValue, 0, dataValue, dataValue * 40);
+      const dataValue = parseInt($(e).attr("data-value"));
+      animateValue(spanValue, dataValue - 30, dataValue, 1000);
     }, i * 600);
   });
 }
@@ -31,9 +32,9 @@ function createArrayByNumber(soLuong) {
 }
 
 function reset() {
-  totalMember = 50;
+  totalMember = 150;
   member = createArrayByNumber(totalMember);
-  console.log(member.sort((a, b) => a - b));
+  console.log(member);
   config.mayman = totalMember - 16;
   $(`#amount-nhat`).text(config.nhat);
   $(`#amount-nhi`).text(config.nhi);
@@ -51,12 +52,9 @@ function getRandomAndRemove(numberOfRandoms) {
     }
     var randomIndex = Math.floor(Math.random() * member.length);
     result.push(member[randomIndex]);
-    member= member.filter((m) => m != member[randomIndex]);
+    member = member.filter((m) => m != member[randomIndex]);
   }
-  resultTest.push(...result);
-  // resultTest.push(result.sort((a, b) => a - b));
   return result;
-  
 }
 
 function animateValue(obj, start, end, duration) {
@@ -72,7 +70,7 @@ function animateValue(obj, start, end, duration) {
   window.requestAnimationFrame(step);
 }
 
-function renderResult(numberOfRandoms) {
+function renderResult(numberOfRandoms, typeGift) {
   const results = getRandomAndRemove(numberOfRandoms);
   const paletteResult = $("#palette-result");
   paletteResult.empty();
@@ -82,8 +80,7 @@ function renderResult(numberOfRandoms) {
     colorDiv.append(spanNumber);
     paletteResult.append(colorDiv);
   });
-  console.log(resultTest);
-  appearResult();
+  appearResult(typeGift);
 }
 
 function bookGift(element) {
@@ -93,19 +90,19 @@ function bookGift(element) {
   console.log(typeGift);
   switch (typeGift) {
     case "nhat":
-      resultToRender = Math.min(config.nhat, 1);;
+      resultToRender = Math.min(config.nhat, 1);
       ribbonSrc = 1;
       break;
     case "nhi":
-      resultToRender = Math.min(config.nhi, 2);;
+      resultToRender = Math.min(config.nhi, 2);
       ribbonSrc = 2;
       break;
     case "ba":
-      resultToRender = Math.min(config.ba, 3);;
+      resultToRender = Math.min(config.ba, 3);
       ribbonSrc = 3;
       break;
     case "khuyenkhich":
-      resultToRender = Math.min(config.khuyenkhich, 10);;
+      resultToRender = 5;
       ribbonSrc = 4;
       break;
     case "mayman":
@@ -115,11 +112,25 @@ function bookGift(element) {
   }
   config[typeGift] = config[typeGift] - resultToRender;
   $(`#amount-${typeGift}`).text(config[typeGift]);
-  renderResult(resultToRender);
+  renderResult(resultToRender, typeGift);
   setRibbon(ribbonSrc);
+}
+
+function getSTT(typeGift) {
+  switch (typeGift) {
+    case "nhat":
+      return 1;
+    case "nhi":
+      return 2;
+    case "ba":
+      return 3;
+    case "khuyenkhich":
+      return 4;
+    case "mayman":
+      return 5;
+  }
 }
 
 function setRibbon(number) {
   $("#ribbon-img").attr("src", `./assets/ribbon/ribbon${number}.png`);
 }
-

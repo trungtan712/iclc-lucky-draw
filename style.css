@@ -91,10 +91,11 @@
 }
 .footer{
     position: absolute;
-    bottom: 50px;
+    bottom: 0px;
     width: 100%;
     display: flex;
     justify-content: center;
+    scale: 0.7;
 }
 
 .footer >  div{
