@@ -1,5 +1,6 @@
 $(document).ready(function () {
   const audio = $("#myAudio")[0];
+  audio.play();
   const playPauseBtn = $("#playPauseBtn");
 
   playPauseBtn.on("click", function () {
