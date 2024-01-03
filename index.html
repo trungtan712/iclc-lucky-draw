@@ -58,16 +58,16 @@
           onclick="bookGift(this)"
           data-tpe="nhat"
         >
-          <img src="./assets/icon/Asset3.png" style="width: 320px" />
-          <div class="amount-gift" id="amount-nhat">20</div>
+          <img src="./assets/icon/Asset1.png" style="width: 320px" />
+          <div class="amount-gift" id="amount-nhat" onclick="renderResultLatest('nhat')">20</div>
         </div>
         <div
           class="d-flex justify-content-center align-items-center flex-column"
           onclick="bookGift(this)"
           data-tpe="nhi"
         >
-          <img src="./assets/icon/Asset4.png" style="width: 320px" />
-          <div class="amount-gift" id="amount-nhi">20</div>
+          <img src="./assets/icon/Asset2.png" style="width: 320px" />
+          <div class="amount-gift" id="amount-nhi" onclick="renderResultLatest('nhi')">20</div>
         </div>
         <div
           class="d-flex justify-content-center align-items-center flex-column"
@@ -75,10 +75,10 @@
           data-tpe="ba"
         >
           <img
-            src="./assets/icon/Asset5.png"
+            src="./assets/icon/Asset3.png"
             style="width: 280px; margin-top: 4px"
           />
-          <div class="amount-gift" id="amount-ba">20</div>
+          <div class="amount-gift" id="amount-ba" onclick="renderResultLatest('ba')">20</div>
         </div>
         <div
           class="d-flex justify-content-center align-items-center flex-column"
@@ -86,10 +86,10 @@
           data-tpe="khuyenkhich"
         >
           <img
-            src="./assets/icon/Asset6.png"
+            src="./assets/icon/Asset4.png"
             style="width: 221px; margin-top: 30px"
           />
-          <div class="amount-gift" id="amount-khuyenkhich">20</div>
+          <div class="amount-gift" id="amount-khuyenkhich"  onclick="renderResultLatest('khuyenkhich')">20</div>
         </div>
         <div
           class="d-flex justify-content-center align-items-center flex-column"
@@ -97,10 +97,26 @@
           data-tpe="mayman"
         >
           <img
-            src="./assets/icon/Asset7.png"
-            style="width: 220px; margin-top: 30px"
+            src="./assets/icon/Asset5.png"
+            style="width: 210px; margin-top: 30px"
           />
-          <div class="amount-gift" id="amount-mayman">20</div>
+          <div class="amount-gift" id="amount-mayman" onclick="renderResultLatest('mayman')">20</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-danger text-white" >
+            <h5 class="modal-title" id="exampleModalLabel">Result</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="background-color: #dea63f;">
+            
+          </div>
         </div>
       </div>
     </div>
@@ -139,6 +155,7 @@
           video.playbackRate = 1.6;
           video.addEventListener("ended", function () {
             document.querySelector(".intro").remove();
+            console.log('end intro');
           });
         }
       });

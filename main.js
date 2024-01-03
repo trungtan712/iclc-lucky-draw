@@ -1,9 +1,16 @@
 $(document).ready(function () {
   const audio = $("#myAudio")[0];
-  audio.play();
   const playPauseBtn = $("#playPauseBtn");
 
   playPauseBtn.on("click", function () {
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  });
+
+  $(".intro").on("click", function () {
     if (audio.paused) {
       audio.play();
     } else {

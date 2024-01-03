@@ -10,6 +10,12 @@ const config = {
   khuyenkhich: 10,
   mayman: totalMember - 16,
 };
+var maymanResult = [];
+var khuyenkhichResult = [];
+var nhatResult = [];
+var nhiResult = [];
+var baResult = [];
+
 reset();
 function appearResult(typeGift) {
   $(".palette .color").each(function (i, e) {
@@ -32,7 +38,7 @@ function createArrayByNumber(soLuong) {
 }
 
 function reset() {
-  totalMember = 150;
+  totalMember = 110;
   member = createArrayByNumber(totalMember);
   console.log(member);
   config.mayman = totalMember - 16;
@@ -72,6 +78,7 @@ function animateValue(obj, start, end, duration) {
 
 function renderResult(numberOfRandoms, typeGift) {
   const results = getRandomAndRemove(numberOfRandoms);
+  addToResult(results, typeGift);
   const paletteResult = $("#palette-result");
   paletteResult.empty();
   results.forEach((result) => {
@@ -87,7 +94,12 @@ function bookGift(element) {
   const typeGift = $(element).attr("data-tpe");
   let resultToRender = 0;
   let ribbonSrc = 1;
-  console.log(typeGift);
+
+  if (config[typeGift] == 0) {
+    $(`#amount-${typeGift}`)
+      .attr("data-toggle", "modal")
+      .attr("data-target", "#exampleModal");
+  }
   switch (typeGift) {
     case "nhat":
       resultToRender = Math.min(config.nhat, 1);
@@ -102,7 +114,7 @@ function bookGift(element) {
       ribbonSrc = 3;
       break;
     case "khuyenkhich":
-      resultToRender = 5;
+      resultToRender = Math.min(config.khuyenkhich, 5);
       ribbonSrc = 4;
       break;
     case "mayman":
@@ -111,6 +123,7 @@ function bookGift(element) {
       break;
   }
   config[typeGift] = config[typeGift] - resultToRender;
+
   $(`#amount-${typeGift}`).text(config[typeGift]);
   renderResult(resultToRender, typeGift);
   setRibbon(ribbonSrc);
@@ -133,4 +146,68 @@ function getSTT(typeGift) {
 
 function setRibbon(number) {
   $("#ribbon-img").attr("src", `./assets/ribbon/ribbon${number}.png`);
+}
+
+function addToResult(result, typeGift) {
+  if (result && result.length > 0) {
+    switch (typeGift) {
+      case "nhat":
+        nhatResult.push(result);
+        break;
+      case "nhi":
+        nhiResult.push(result);
+        break;
+      case "ba":
+        baResult.push(result);
+        break;
+      case "khuyenkhich":
+        khuyenkhichResult.push(result);
+        break;
+      case "mayman":
+        maymanResult.push(result);
+        break;
+    }
+    console.log({
+      nhatResult,
+      nhiResult,
+      baResult,
+      khuyenkhichResult,
+      maymanResult,
+    });
+  }
+}
+function renderResultLatest(typeGift) {
+  console.log("thien");
+  const modalBody = $(".modal-body");
+  modalBody.empty();
+  let result = [];
+  switch (typeGift) {
+    case "nhat":
+      result = nhatResult;
+      break;
+    case "nhi":
+      result = nhiResult;
+      break;
+    case "ba":
+      result = baResult;
+      break;
+    case "khuyenkhich":
+      result = khuyenkhichResult;
+      break;
+    case "mayman":
+      result = maymanResult;
+      break;
+  }
+  if (result && result.length > 0) {
+    result.forEach((row, rowIndex) => {
+      const resultRow = $("<div class='row'></div>");
+
+      row.forEach((col, colIndex) => {
+        const resultCol = $(`<div class='number-result col'>${col}</div>`);
+        resultRow.append(resultCol);
+      });
+
+      modalBody.append(resultRow);
+    });
+  }
 }
