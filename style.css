@@ -25,6 +25,9 @@
   align-items: center;
   position: relative;
 }
+.logo{
+  padding: 36px;
+}
 .header {
   position: absolute;
   top: 0;
@@ -33,6 +36,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-align: center;
+}
+.header .title{
+  font-size: 80px;
+  margin-left: -240px;
+  color: aliceblue;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .main{
     margin-top: -200px;
@@ -95,7 +105,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    scale: 0.7;
+    transform: scale(1.0);
 }
 
 .footer >  div{

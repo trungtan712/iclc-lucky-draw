@@ -38,7 +38,7 @@ function createArrayByNumber(soLuong) {
 }
 
 function reset() {
-  totalMember = 110;
+  totalMember = 150;
   member = createArrayByNumber(totalMember);
   console.log(member);
   config.mayman = totalMember - 16;

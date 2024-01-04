@@ -177,41 +177,41 @@
 }
 
 .bg-frame1 span {
-  font-size: 78px;
+  font-size: 70px;
 }
 .bg-frame1 {
   background-image: url(./assets/frame/Prize1.png);
   background-size: cover;
   background-position-x: 1px;
-  width: 500px;
-  height: 435px;
-  margin-top: -197px;
+  width: 420px;
+  height: 370px;
+  margin-top: -20px;
 }
 
 .bg-frame2 span {
-  font-size: 87px;
+  font-size: 78px;
 }
 .bg-frame2 {
   background-image: url("./assets/frame/Prize2.png");
   background-size: cover;
-  width: 400px;
-  height: 324px;
-  margin-top: -91px;
+  width: 350px;
+  height: 280px;
+  margin-top: 55px;
 }
 
 .bg-frame3 span {
-  font-size: 80px;
+  font-size: 76px;
 }
 .bg-frame3 {
   background-image: url("./assets/frame/Prize3.png");
   background-size: cover;
-  width: 300px;
-  height: 300px;
-  margin-top: -78px;
+  width: 250px;
+  height: 250px;
+  margin-top: 75px;
 }
 
 .bg-frame4 span {
-  font-size: 85px;
+  font-size: 76px;
   margin-top: 32px;
 }
 .bg-frame4 {
@@ -219,7 +219,7 @@
   background-size: cover;
   width: 250px;
   height: 250px;
-  margin-top: -75px;
+  margin-top: 75px;
 }
 
 .bg-frame5 span{
@@ -229,6 +229,7 @@
   background-image: url("./assets/frame/Prize5.png");
   background-size: cover;
   height: 180px;
+  margin-top: 120px;
 }
 .number-result{
   background-color: #be3124;
