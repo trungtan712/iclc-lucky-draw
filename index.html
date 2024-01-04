@@ -158,8 +158,7 @@
       // Event listener for key press
       $(document).keydown(function (event) {
         console.log(event.key);
-        const paletteResult = $("#palette-result");
-        paletteResult.empty();
+        
         const audio = $("#myAudio")[0];
 
         switch (event.key) {
@@ -172,22 +171,27 @@
             break;
           case '1':
             showGift('giainhat');
+             emptyResult()
             setRibbon(event.key)
             break;
           case '2':
             showGift('giainhi');
+             emptyResult()
             setRibbon(event.key)
             break;
           case '3':
             showGift('giaiba');
+             emptyResult()
             setRibbon(event.key)
             break;
           case '4':
             showGift('giaikhuyenkhich');
+             emptyResult()
             setRibbon(event.key)
             break;
           case '5':
             showGift('giaimayman');
+             emptyResult()
             setRibbon(event.key)
             break;
           case '6':
@@ -200,6 +204,11 @@
         }
       });
     })
+
+    function emptyResult(){
+      const paletteResult = $("#palette-result");
+        paletteResult.empty();
+    }
   </script>
 </body>
 
